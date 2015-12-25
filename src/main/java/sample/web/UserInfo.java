@@ -13,15 +13,17 @@ public class UserInfo {
     protected Integer id;
     protected String firstName;
     protected String lastName;
+    protected String age;
 
     public UserInfo(){
     	super();
     }
 
-    public UserInfo(String firstName,String lastName){
+    public UserInfo(String firstName,String lastName,String age){
     	super();
     	this.firstName = firstName;
     	this.lastName = lastName;
+    	this.age = age;
 
     }
 
@@ -29,8 +31,24 @@ public class UserInfo {
     	return this.firstName;
     }
 
+    public void setFirstName(String firstName){
+    	this.firstName = firstName;
+    }
+
     public String getLastName(){
     	return this.lastName;
+    }
+
+    public void setLastName(String lastName){
+    	this.lastName = lastName;
+    }
+
+    public String getAge(){
+    	return this.age;
+    }
+
+    public void setAge(String Age){
+    	this.age = Age;
     }
 
 }

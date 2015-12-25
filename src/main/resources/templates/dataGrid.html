@@ -6,6 +6,21 @@
 </head>
 <body>
 
+
+<table>
+	<tr>
+		<th>苗字</th>
+		<th>名前</th>
+		<th>年齢</th>
+	</tr>
+	<tr th:each="user : ${glidList}">
+		<td th:text="${user.lastName}">-</td>
+		<td th:text="${user.firstName}">-</td>
+		<td th:text="${user.age}">-</td>
+	</tr>
+</table>
+
+<!--
  <dl th:each="user : ${glidList}">
       <dt>苗字</dt>
       <dd th:text="${user.lastName}"></dd>
@@ -13,6 +28,7 @@
       <dt>名前</dt>
       <dd th:text="${user.firstName}"></dd>
     </dl>
+ -->
 
 	<form method="GET" action="/getGrid">
 		<input type="submit" value="取得" />
@@ -21,8 +37,9 @@
 <p>情報登録:</p>
 
 <form method="POST" action="/postGrid">
-  苗字: <input type="text" name="firstName" /><br />
-  名前: <input type="text" name="lastName" /><br />
+  苗字: <input type="text" name="lastName" /><br />
+  名前: <input type="text" name="firstName" /><br />
+  年齢：<input type="text" name="age" /><br />
   <input type="submit" value="登録" />
 </form>
 

@@ -25,6 +25,7 @@ public class GridController {
 	@RequestMapping("/getGrid")
 	public String getGrid(Model model) {
 		Iterable<UserInfo> list = repository.findAll();
+		System.out.println();
 	      model.addAttribute("glidList", list);
 	      return "dataGrid";
 	}
@@ -32,12 +33,21 @@ public class GridController {
 	@RequestMapping(value="/postGrid", method=RequestMethod.POST)
 	public String insertUserInfo(Model model,
 			@RequestParam("lastName") String lastName,
-		    @RequestParam("firstName") String firstName){
-		UserInfo info = new UserInfo(firstName,lastName);
-		repository.saveAndFlush(info);
+		    @RequestParam("firstName") String firstName,
+			@RequestParam("age")String age){
+		try{
+			UserInfo info = new UserInfo(firstName,lastName,age);
+			repository.saveAndFlush(info);
 
-		return "dataGrid";
+			return "dataGrid";
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
 	}
+
+
+
 
 
 }

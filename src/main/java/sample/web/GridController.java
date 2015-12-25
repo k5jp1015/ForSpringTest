@@ -42,7 +42,7 @@ public class GridController {
 			return "dataGrid";
 		}catch(Exception e){
 			e.printStackTrace();
-			return null;
+			throw new IllegalArgumentException("this is test!!");
 		}
 	}
 
